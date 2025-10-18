@@ -1,4 +1,5 @@
 package dogapi;
+import dogapi.BreedNotFoundException;
 
 import java.util.*;
 
