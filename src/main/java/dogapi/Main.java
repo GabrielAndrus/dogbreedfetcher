@@ -1,4 +1,5 @@
 package dogapi;
+import dogapi.BreedNotFoundException;
 
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class Main {
             List subBreeds = breedFetcher.getSubBreeds(breed);
             return subBreeds.size();
         } catch (BreedNotFoundException e) {
-            return 0
+            return 0;
         }
-        return numberSubBreeds/
+        return subBreeds;
     }
 }

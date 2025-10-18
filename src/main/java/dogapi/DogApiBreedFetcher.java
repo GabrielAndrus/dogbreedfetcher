@@ -1,4 +1,5 @@
 package dogapi;
+import dogapi.BreedNotFoundException;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -34,20 +35,20 @@ public class DogApiBreedFetcher implements BreedFetcher {
         OkHttpClient client = new OkHttpClient();
         List<String> subBreedsList = new ArrayList<>();
 
-        HttPUrl url = HttpUrl.parseUrl(baseUrl);
+        HttpUrl url = HttpUrl.parse(baseUrl);
                 .newBuilder()
                 .addPathSegment(breed)
                 .addPathSegment("list")
                 .build();
 
 
-        Request request = new Request.builder();
+        Request request = new Request.builder()
                 .url(url)
                 .build();
 
         Response response = client.newCall(request).execute();
 
-        JSONObject json = = new JSONObject(response.body().string());
+        JSONObject json = new JSONObject(response.body().string());
         JSONArray subBreedsArray = json.getJSONArray("message");
 
         for (int i = 0; i < subBreedsArray.length(); i++)
