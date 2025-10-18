@@ -16,7 +16,7 @@ import java.util.*;
 public class CachingBreedFetcher implements BreedFetcher {
     // TODO Task 2: Complete this class
     private final BreedFetcher fetcher;
-    private final Map<String, List<String>> caches = new HashMap<>();
+    private final Map<String, List<String>> cache = new HashMap<>();
     private int callsMade = 0;
     public CachingBreedFetcher(BreedFetcher fetcher) {
         this.fetcher = fetcher;
